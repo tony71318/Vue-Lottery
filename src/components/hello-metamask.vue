@@ -1,10 +1,16 @@
 <template>
   <div class='metamask-info'>
-    <b-badge v-if="isInjected" variant="success">Metamask installed</b-badge>
-    <b-badge v-else variant="danger">Metamask installed</b-badge>
-    <p><b-badge variant="success">{{ network }}</b-badge></p>
-    <p>您的地址: <b-badge variant="success">{{ coinbase }}</b-badge></p>
-    <p>您的餘額: <b-badge variant="success">{{ ethBalance }} Eth</b-badge></p>
+    <div>
+      <b-badge v-if="isInjected" variant="success">Metamask installed</b-badge>
+      <b-badge v-else variant="danger">Metamask not found</b-badge>
+      <b-badge variant="success">{{ network }}</b-badge>
+    </div>
+    <br>
+
+    <p class="no_margin">您的地址:</p>
+    <b-badge variant="success">{{ coinbase }}</b-badge>
+    <p class="no_margin">您的餘額:</p>
+    <b-badge variant="success">{{ ethBalance }} Eth</b-badge>
   </div>
 </template>
 
@@ -34,4 +40,8 @@ export default {
 }
 #no-metamask {
   color:red;
-}</style>
+}
+.no_margin{
+  margin-bottom: 0;
+}
+</style>

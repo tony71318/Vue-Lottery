@@ -1,7 +1,5 @@
 <template>
-  <div class="lotto container">
-    <h1>區塊鏈大樂透</h1>
-    <h4>決定下注金額</h4>
+  <div class="lotto">
     下注金額: <input v-model="amount" placeholder="0 Ether">
     <b-button size="sm" variant="primary" v-on:click = "bet">買樂透</b-button>
 

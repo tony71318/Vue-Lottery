@@ -1,5 +1,8 @@
 <template>
-  <div>
+  <div class="bg">
+    <h1>區塊鏈大樂透</h1>
+    <!-- <h4>決定下注金額</h4> -->
+    <hr>
     <!-- <navbar/> -->
     <hello-metamask/>
     <!-- <casino-component/> -->
@@ -33,4 +36,12 @@ export default {
 </style>
 
 <style scoped>
+
+  .bg{
+    background-color: rgba(255, 255, 255, 0.5);
+    width:60%;
+    display: inline-block;
+    padding: 1em;
+  }
+
 </style>
