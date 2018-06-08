@@ -6,8 +6,10 @@
     <div class='contract-info'>
       <p>樂透號碼: <b-badge variant="danger">{{ OwnedDicingResult }}</b-badge></p>
       <p>樂透擁有者: <b-badge variant="success">{{ owner }}</b-badge></p>
+      <p>樂透贏家: <b-badge id="winner" variant="success">{{ winner }}</b-badge></p>
       <p>累積獎金: <b-badge variant="success">{{ ethBalance }} Eth</b-badge></p>
       <p>累積人數: <b-badge variant="success">{{ playerCount }}</b-badge></p>
+      <p>區塊高度: <b-badge variant="success">{{ currentBlockNumber }}</b-badge></p>
       <b-button variant="primary" v-on:click = "getContractInfo">更新合約資訊</b-button>
     </div>
     <img v-if="pending" id="loader" src="https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif">
@@ -37,11 +39,14 @@ export default {
       ethBalance: 0,
       playerCount: 0,
       OwnedDicingResult: '',
-      PlayerDicingResult: ''
+      PlayerDicingResult: '',
+      winner: null,
+      currentBlockNumber: null
     }
   },
   methods: {
     bet (event) {
+      this.getBlockInfo()
       console.log('BETTING ON Lottery, AMOUNT = ', this.amount)
       this.winEvent = null
       this.pending = true
@@ -54,7 +59,7 @@ export default {
           console.log(err)
           this.pending = false
         } else {
-          let Won = this.$store.state.contractInstance().Won()
+          let Won = this.$store.state.contractInstance().Won({}, {fromBlock: '3396274', toBlock: 'latest'})
           Won.watch((err, result) => {
             if (err) {
               console.log('could not get event Won()')
@@ -102,14 +107,35 @@ export default {
         }
         this.PlayerDicingResult = result.c[0]
       })
-      // let Won = this.$store.state.contractInstance().Won({fromBlock: '3391700', toBlock: 'latest'})
-      // Won.get((err, result) => {
-      //   if (err) {
-      //     console.log('could not get event Won()')
-      //   } else {
-      //     console.log(result)
-      //   }
-      // })
+      this.$store.state.contractInstance().getWinner((error, result) => {
+        if (error) {
+          console.log(error)
+        }
+        // eslint-disable-next-line
+        if (result == this.owner) {
+          this.winner = '無人中獎'
+        } else {
+          this.winner = result
+        }
+      })
+      // Block~~~~~~~~~~
+      this.getBlockInfo()
+      let Won = this.$store.state.contractInstance().Won({}, {fromBlock: '3396100', toBlock: 'latest'})
+      Won.get((err, result) => {
+        if (err) {
+          console.log('could not get event Won()')
+        } else {
+          console.log(result)
+        }
+      })
+    },
+    getBlockInfo () {
+      this.$store.state.web3.web3Instance().eth.getBlockNumber((error, result) => {
+        if (error) {
+          console.log(error)
+        }
+        this.currentBlockNumber = result
+      })
     }
   },
   mounted () {
