@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-const address = '0x4555abf30815ad8ec1b7dce499cc590b358f11b0'
+const address = '0x55b63fe68a93f767a095a3b3985d8c70b0f50f03'
 const ABI = [
 	{
 		"constant": true,
@@ -23,20 +23,6 @@ const ABI = [
 			{
 				"name": "",
 				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "getPlayerCount",
-		"outputs": [
-			{
-				"name": "playerCount",
-				"type": "uint256"
 			}
 		],
 		"payable": false,
@@ -98,11 +84,11 @@ const ABI = [
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "getWinner",
+		"name": "getPlayerCount",
 		"outputs": [
 			{
-				"name": "",
-				"type": "address"
+				"name": "playerCount",
+				"type": "uint256"
 			}
 		],
 		"payable": false,
@@ -154,11 +140,39 @@ const ABI = [
 	{
 		"constant": true,
 		"inputs": [],
+		"name": "check",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
 		"name": "OwnedDicingResult2",
 		"outputs": [
 			{
 				"name": "",
 				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getWinner",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
 			}
 		],
 		"payable": false,

@@ -1,16 +1,17 @@
 <template>
   <div class='metamask-info'>
     <div>
-      <b-badge v-if="isInjected" variant="success">Metamask installed</b-badge>
-      <b-badge v-else variant="danger">Metamask not found</b-badge>
-      <b-badge variant="success">{{ network }}</b-badge>
+      <b-badge v-if="isInjected" variant="success"><i aria-hidden="true" class="fa fa-check"></i> Metamask installed</b-badge>
+      <b-badge v-else variant="danger"><i aria-hidden="true" class="fa fa-times"></i> Metamask not found</b-badge>
+      <b-badge variant="success"><i aria-hidden="true" class="fa fa-check"></i> {{ network }}</b-badge>
     </div>
     <br>
 
-    <p class="no_margin">您的地址:</p>
-    <b-badge variant="success">{{ coinbase }}</b-badge>
-    <p class="no_margin">您的餘額:</p>
-    <b-badge variant="success">{{ ethBalance }} Eth</b-badge>
+    <h5 class="no_margin">您的地址:</h5>
+    <h5><b-badge variant="success"><i class="fa fa-address-card-o"></i> {{ coinbase }}</b-badge></h5>
+    <h5 class="no_margin">您的餘額:</h5>
+    <h5><b-badge variant="success"><i class="fa fa-usd"></i> {{ ethBalance }} Eth</b-badge></h5>
+    <hr>
   </div>
 </template>
 

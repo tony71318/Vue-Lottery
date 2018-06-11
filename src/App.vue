@@ -23,10 +23,11 @@ export default {
  }
 }
 
-  .main{
-    text-align: center;
-    padding-top: 4%;
-    padding-bottom: 2%;
-    font-family: '微軟正黑體';
-  }
+.main{
+  text-align: center;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  font-family: '微軟正黑體';
+}
+
 </style>
