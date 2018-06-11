@@ -1,7 +1,7 @@
 /* eslint-disable */
 
-const address = '0xb426c9c8fe0c09308dd15789eeef86279b7e3183'
-const ABI = [
+const demoAddress = '0xb426c9c8fe0c09308dd15789eeef86279b7e3183'
+const demoABI = [
 	{
 		"anonymous": false,
 		"inputs": [
@@ -388,4 +388,4 @@ const ABI = [
 	}
 ]
 
-export {address, ABI}
+export {demoAddress, demoABI}
