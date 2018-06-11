@@ -214,7 +214,9 @@ export default {
   },
   mounted () {
     console.log('dispatching getContractInstance')
-    this.$store.dispatch('getContractInstance')
+    this.$store.dispatch('getContractInstance').then(() => {
+      this.getContractInfo()
+    });
   }
 }
 </script>
