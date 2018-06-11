@@ -93,7 +93,7 @@ export default {
     withdraw (event) {
       this.getBlockInfo()
       // console.log('withdraw ether', this.winEvent._amount)
-      this.$store.state.contractInstance().withdraw({
+      this.$store.state.demoContractInstance().withdraw({
         gas: 300000,
         from: this.$store.state.web3.coinbase
       }, (err, result) => {
