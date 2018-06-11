@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-const demoAddress = '0x3b4d09d3dcc4276601b1a9edc4eac54f0d46946f'
+const demoAddress = '0x90a8ece7e31044294a3c07c485fe681162b1e510'
 const demoABI = [
 	{
 		"constant": true,
