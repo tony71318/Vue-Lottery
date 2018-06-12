@@ -7,9 +7,7 @@
 
     <div class='contract-info'>
       <h5>樂透號碼: <h1><b-badge v-if="OwnedDicingResult" variant="info">
-        <font-awesome-icon v-if="dice[0]" :icon="['fa', 'dice-' + dice[0]]" /> 
-        <font-awesome-icon v-if="dice[1]" :icon="['fa', 'dice-' + dice[1]]" /> 
-        <font-awesome-icon v-if="dice[2]" :icon="['fa', 'dice-' + dice[2]]" /></b-badge></h1>
+        <font-awesome-icon v-if="dice[0]" :icon="['fa', 'dice-' + dice[0]]" /> <font-awesome-icon v-if="dice[1]" :icon="['fa', 'dice-' + dice[1]]" /> <font-awesome-icon v-if="dice[2]" :icon="['fa', 'dice-' + dice[2]]" /></b-badge></h1>
       </h5>
       <h5>樂透擁有者: <b-badge variant="success">{{ owner }}</b-badge></h5>
       <h5>樂透贏家: <b-badge id="winner" variant="success">{{ winner }}</b-badge></h5>
@@ -23,9 +21,7 @@
     <img v-if="pending" id="loader" src="https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif">
     <div class="event" v-if="winEvent">
       <h5>您的號碼: <h1><b-badge v-if="PlayerDicingResult" variant="info">
-        <font-awesome-icon v-if="playerDice[0]" :icon="['fa', 'dice-' + playerDice[0]]" /> 
-        <font-awesome-icon v-if="playerDice[1]" :icon="['fa', 'dice-' + playerDice[1]]" /> 
-        <font-awesome-icon v-if="playerDice[2]" :icon="['fa', 'dice-' + playerDice[2]]" /></b-badge></h1>
+        <font-awesome-icon v-if="playerDice[0]" :icon="['fa', 'dice-' + playerDice[0]]" /> <font-awesome-icon v-if="playerDice[1]" :icon="['fa', 'dice-' + playerDice[1]]" /> <font-awesome-icon v-if="playerDice[2]" :icon="['fa', 'dice-' + playerDice[2]]" /></b-badge></h1>
       </h5>
       <h5 v-if="winEvent._status" id="has-won"><i aria-hidden="true" class="fa fa-check"></i> 大吉大利, 你贏得 {{winEvent._amount}} Eth</h5>
       <h5 v-else id="has-lost"><b-badge variant="danger"><i aria-hidden="true" class="fa fa-times"></i> 太可惜啦，在試一次吧</b-badge></h5>
@@ -216,7 +212,7 @@ export default {
     console.log('dispatching getDemoContractInstance')
     this.$store.dispatch('getDemoContractInstance').then(() => {
       this.getContractInfo()
-    });
+    })
   }
 }
 </script>
